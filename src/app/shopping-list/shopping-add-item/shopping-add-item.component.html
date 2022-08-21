@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onAddIngredient(form)" #form="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            ngModel
+            name="name"
+            required>
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            id="amount"
+            class="form-control"
+            ngModel
+            name="amount"
+            required
+            pattern="^[1-9]+[0-9]*$">
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="unit">Unit</label>
+          <select id="unit" class="form-control" [ngModel]="this.environment.defaultUnit" name="unit">
+            <option value="piece/s">Piece/s</option>
+            <option *ngFor="let unit of this.environment.unitOptions" value="{{unit.value}}">{{unit.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="btn-toolbar">
+            <button type="submit" class="btn btn-success" [disabled]="!form.valid" >Add</button>
+            <button type="button" class="btn btn-primary" (click)="onClearShoppingList()">Clear </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<form (ngSubmit)="onUpdate(form)" #form="ngForm">
+  <div class="row">
+    <div class="col-sm-5 form-group">
+      <label for="name">Name</label>
+      <input
+        [ngModel]="ingredient.name"
+        type="text"
+        id="name"
+        class="form-control"
+        ngModel
+        name="name"
+        required>
+    </div>
+    <div class="col-sm-2 form-group">
+      <label for="amount">Amount</label>
+      <input
+        [ngModel]="ingredient.amount"
+        type="number"
+        id="amount"
+        class="form-control"
+        ngModel
+        name="amount"
+        required
+        pattern="^[1-9]+[0-9]*$">
+    </div>
+    <div class="col-sm-2 form-group">
+      <label for="unit">Unit</label>
+      <select id="unit" class="form-control" [ngModel]="ingredient.unit" name="unit">
+        <option *ngFor="let unit of this.environment.unitOptions" value="{{unit.value}}">{{unit.name}}</option>
+      </select>
+    </div>
+    <div class="btn-toolbar pull-right">
+      <button type="submit" class="btn btn-success" [disabled]="!form.valid" >Save</button>
+    </div>
+  </div>
+</form>
+
