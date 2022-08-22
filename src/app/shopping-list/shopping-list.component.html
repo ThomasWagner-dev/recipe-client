@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-xs-12">
+    <app-shopping-list-add-item></app-shopping-list-add-item>
+    <hr>
+    <ul class="list-group">
+      <app-shopping-list-item *ngFor="let ingredient of ingredients" [ingredient]="ingredient"></app-shopping-list-item>
+    </ul>
+  </div>
+</div>

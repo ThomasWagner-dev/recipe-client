@@ -1,0 +1,18 @@
+<a class="list-group-item clearfix">
+  <app-shopping-list-item-edit (ingredientUpdated)="editMode = false" *ngIf="editMode" [ingredient]="ingredient"></app-shopping-list-item-edit>
+  <div *ngIf="!editMode">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">{{ ingredient.name }}</h4>
+      <span class="list-group-item-text">{{ ingredient.amount }} {{ingredient.unit}}</span>
+    </div>
+    <span class="pull-right">
+      <button class="btn btn-xs btn-warning" (click)="editMode = true">
+        <span class="glyphicon glyphicon-edit"></span>
+      </button>
+      <button class="btn btn-xs btn-danger" (click)="onDelete()">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </span>
+  </div>
+</a>
+
