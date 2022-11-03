@@ -26,7 +26,7 @@ export class RecipeCreateOrUpdateComponent implements OnInit {
       (params: Params) => {
         this.updateMode = params.id !== null;
         if (this.updateMode) {
-          const selectedRecipe = this.recipeService.getRecipe(+params['id']);
+          const selectedRecipe = this.recipeService.getRecipe(Number(params['id']));
           this.recipeID = selectedRecipe.id;
           this.newOrUpdatedRecipe = new RecipeNoID(
             selectedRecipe.name,
